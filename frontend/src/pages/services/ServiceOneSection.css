@@ -1,0 +1,187 @@
+.services-section {
+    display: flex;
+    flex-direction: row;
+    width: var(--page-width);
+    align-items: center;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+}
+
+.TheMiddleService{
+    flex-direction: row-reverse;
+}
+
+.services-content {
+    flex-basis: 50%;
+    padding-right: 20px;
+}
+
+.services-title {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.TheMiddleService .services-title{
+    color: #2e5c9a;
+}
+
+.services-description {
+    font-size: 1.1rem;
+    color: #434343e2;
+    line-height: 1.6;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.goto-button-container{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: left;
+}
+
+.goto-button{
+    padding-top: 60px;
+}
+
+.services-image {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.services-img {
+    width: 100%;
+    height: 370px;
+    max-width: 500px;
+    min-width: 270px;
+    border-radius: 5px;
+    background-image: url('./images/immigration-consultancy.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.first-service .services-img{
+    background-image: url('./images/immigration-consultancy.png');
+}
+.TheMiddleService .services-img{
+    background-image: url('./images/study-abroad.png');
+}
+.last-service .services-img{
+    background-image: url('./images/legal-services.png');
+}
+
+@media (min-width: 1024px ) and (max-width: 1439px){
+    .services-section{
+        width: calc(var(--page-width) - 10%);
+    }
+    .goto-button{
+        padding-top: 40px;
+    }
+    .services-img {
+        height: 320px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .services-section{
+        width: calc(var(--page-width) - 10%);
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+    .services-title{
+        font-size:1.5em;
+    }
+    .services-description{
+        font-size: 0.8em;
+    }
+    .goto-button{
+    transform: scale(0.8);
+        padding-top: 30px;
+    }
+    .services-img {
+        height: 260px;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 767px){
+    .services-section{
+        width: calc(var(--page-width) - 18%);
+        padding-top: 5px;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    .services-title{
+        font-size:1.5em;
+    }
+    .services-description{
+        font-size: 0.8em;
+    }
+    .goto-button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    transform: scale(0.8);
+        padding-top: 30px;
+    }
+    .services-img {
+        height: 250px;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 424px){
+    .services-section{
+        width: calc(var(--page-width) - 18%);
+        padding-top: 5px;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    .services-title{
+        font-size:1.5em;
+    }
+    .services-description{
+        font-size: 0.8em;
+    }
+    .goto-button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        transform: scale(0.8);
+        padding-top: 30px;
+    }
+    .services-img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 374px){
+    .services-section{
+        width: calc(var(--page-width) - 10%);
+        padding: 5px 20px 10px;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    .services-title{
+        font-size:1.5em;
+    }
+    .services-description{
+        font-size: 0.8em;
+    }
+    .goto-button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    transform: scale(0.8);
+        padding-top: 30px;
+    }
+    .services-img {
+        height: 250px;
+        min-width: 230px;
+    }
+}

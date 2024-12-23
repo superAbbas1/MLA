@@ -1,0 +1,43 @@
+.background-section {
+    position: relative;
+    height: 500px;
+
+    background-image: url('../images/uk-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+@media (min-width: 1440px) and (max-width: 2559px){
+    .background-section{
+        height: 350px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px){
+    .background-section{
+        height: 300px;
+    }   
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .background-section{
+        height: 250px;
+    }   
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .background-section{
+        height: 250px;
+    }   
+}
+
+@media (max-width: 767px){
+    .background-section{
+        background-image: url('../images/bg-image-mobile.png');
+    }
+    .background-section{
+        height: 300px;
+    }
+}

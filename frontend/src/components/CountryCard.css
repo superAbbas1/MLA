@@ -1,0 +1,266 @@
+.country-card {
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    width: 500px;
+    height: 300px;
+}
+
+.country-content {
+    display: block;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+
+.country-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease-in-out;
+    z-index: 0;
+    animation: moving 30s forwards infinite;
+}
+
+.background-uk{
+    transform: scale(1.2);
+}
+
+/* Specific background images for each card */
+.background-canada .country-content::before {
+    background-image: url('../pages/home/images/canada.jpg');
+}
+
+.background-uk .country-content::before {
+    background-image: url('../pages/home/images/uk.jpg');
+}
+
+.background-australia .country-content::before {
+    background-image: url('../pages/home/images/australia.jpg');
+}
+
+@keyframes moving {
+    0% {
+        transform: rotate(0) translate(1em) rotate(0) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) translate(1em) rotate(-360deg) scale(1.2);
+    }
+}
+
+.go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 0;
+    right: 0;
+    background-color: #0000006c;
+    border-radius: 0 4px 0 32px;
+
+    transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+}
+
+.go-arrow {
+    color: white;
+    position: absolute;
+    top: -6px;
+    right: -5px;
+
+    width: 15px;
+    height: 15px;
+    stroke-width: 1.5;
+    stroke: currentColor;
+    transition: top 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+.country-card:hover .go-arrow {
+    right: 5px;
+    top: 5px;
+    transition: top 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    padding: 10px 20px 0;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0);
+    transition: all 0.3s ease-out;
+}
+
+.overlay-text h4 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+}
+
+.overlay-text p {
+    font-weight: 200;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.country-card:hover .overlay-text {
+    color: white;
+    opacity: 1;
+    z-index: 2;
+}
+
+.country-card:hover::before {
+    border: 1px solid black;
+    transition: 0.3s ease-in-out;
+}
+
+.country-card:hover .go-corner{
+    width: 520px;
+    height: 320px;
+    transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+}
+
+
+@media (min-width: 1440px) and (max-width: 2559px){
+    .country-card{
+        width: 360px;
+        height: 300px;
+    }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1439px){
+    .country-card{
+        width: 275px;
+        height: 275px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .country-card{
+        width: 205px;
+        height: 205px;
+    }
+    .go-corner{
+        width: 25px;
+        height: 25px;
+    }
+    .overlay-text{
+        font-size: 12px;
+    }
+    .overlay-text h4{
+        margin: 5px 0 0;
+    }
+    .overlay-text p{
+        margin: 0;
+    }
+    @keyframes moving {
+        0% {
+            transform: rotate(0) translate(1em) rotate(0) scale(1.2);
+        }
+        100% {
+            transform: rotate(360deg) translate(1em) rotate(-360deg) scale(1.2);
+        }
+    }
+}
+
+
+@media (min-width: 425px) and (max-width: 767px){
+    .country-card{
+        width: 270px;
+        height: 205px;
+    } 
+    .go-corner{
+        width: 25px;
+        height: 25px;
+    }
+    .overlay-text{
+        font-size: 12px;
+    }
+    .overlay-text h4{
+        margin: 5px 0 0;
+    }
+    .overlay-text p{
+        margin: 0;
+    }
+    @keyframes moving {
+        0% {
+            transform: rotate(0) translate(1em) rotate(0) scale(1.2);
+        }
+        100% {
+            transform: rotate(360deg) translate(1em) rotate(-360deg) scale(1.2);
+        }
+    }
+}
+
+
+/* mobile medium */
+
+@media (min-width: 375px) and (max-width: 424px){
+    .country-card{
+        width: 270px;
+        height: 205px;
+    } 
+    .go-corner{
+        width: 25px;
+        height: 25px;
+    }
+    .overlay-text{
+        font-size: 12px;
+    }
+    .overlay-text h4{
+        margin: 5px 0 0;
+    }
+    .overlay-text p{
+        margin: 0;
+    }
+    @keyframes moving {
+        0% {
+            transform: rotate(0) translate(1em) rotate(0) scale(1.2);
+        }
+        100% {
+            transform: rotate(360deg) translate(1em) rotate(-360deg) scale(1.2);
+        }
+    }
+}
+
+/* mobile medium */
+
+@media (max-width: 374px){
+    .country-card{
+        width: 88%;
+        height: 205px;
+    } 
+    .go-corner{
+        width: 25px;
+        height: 25px;
+    }
+    .overlay-text{
+        font-size: 12px;
+    }
+    .overlay-text h4{
+        margin: 5px 0 0;
+    }
+    .overlay-text p{
+        margin: 0;
+    }
+    @keyframes moving {
+        0% {
+            transform: rotate(0) translate(1em) rotate(0) scale(1.2);
+        }
+        100% {
+            transform: rotate(360deg) translate(1em) rotate(-360deg) scale(1.2);
+        }
+    }
+}

@@ -1,0 +1,75 @@
+:root {
+    --page-width: 1800px;
+    --page-width-contact: 1800px;
+    --font-navbrand: "Oooh Baby", cursive;
+    --font-title: "Chela One", system-ui;
+    --font-desc: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0; 
+}
+
+/* Define the slideUp animation */
+@keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px); /* Starts below the viewport */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* End at normal position */
+    }
+  }
+  
+  /* Apply the animation */
+  .slideUpAnimation {
+    animation: slideUp 0.5s ease-out forwards; /* 'forwards' ensures the element stays in the final position */
+  }
+  
+
+
+
+/* ---- rresponsiveness --- */
+
+@media (min-width: 1440px) and (max-width: 2559px) {
+    :root {
+        --page-width: 1224px;
+        --page-width-contact: 1224px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    :root {
+        --page-width: 964px;
+        --page-width-contact: 908px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --page-width: 708px;
+        --page-width-contact: 667px;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 767px) {
+    :root {
+        --page-width: 365px;
+        --page-width-contact: 365px;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 424px) {
+    :root {
+        --page-width: 315px;
+        --page-width-contact: 300px;
+    }
+}
+
+@media (max-width: 374px) {
+    :root {
+        --page-width: 81%;
+        --page-width-contact: 81%;
+    }
+}

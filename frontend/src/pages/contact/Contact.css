@@ -1,0 +1,582 @@
+/* General Styling */
+.contact-page{
+    margin: 0;
+    width: 100%;
+    padding: 180px 0 70px 0;
+    /* background-color: black; */
+}
+
+.contact-page .heading{
+    margin: 0 0 50px 0;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.contact-section {
+    display: flex;
+    justify-content: space-around;
+    padding:60px 50px 100px 50px;
+    background-color: #f4f7f9;
+    color: #333;
+    width: var(--page-width-contact);
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+
+  .appointment-content{
+    padding: 100px 20px 0 50px;
+  }
+  /* Appointment Information Styling */
+.appointment-info {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* margin-right: 40px;   */
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.appointment-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #3a86ff;
+  margin-bottom: 15px;
+}
+
+/* Description Styling */
+.appointment-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Guidance Bullet List Styling */
+.appointment-guidance {
+  list-style-type:disc;
+  margin-left: 20px;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 20px 0 0 10px;
+}
+
+.appointment-guidance li {
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+/* Details Section Styling */
+.appointment-details {
+  margin-top: 20px;
+  padding: 20px 0 20px 60px;
+}
+
+
+  /* Contact Form Styling */
+.contact-form-container {
+  /* max-width: 650px; */
+  /* margin: 0 auto; */
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container h3 {
+  font-size: 2rem;
+  color: #2e5c9a;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 500;
+  display: block;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  position: relative;
+  padding: 8px 11px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: #2e5c9a;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.dateAndTime {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.dateAndTime div {
+  flex: 1;
+}
+
+/* Message Text Area Styling */
+.contact-form textarea {
+  height: 150px;
+  resize:both;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  visibility: hidden;
+  height: 14px;
+  margin: 4px 0 0;
+}
+
+.error-text:empty {
+  visibility: hidden;
+}
+
+.success-text {
+  color: green;
+  margin-top: 10px;
+}
+
+.submit-btn button {
+  width: 100%;
+  padding: 16px;
+  background-color: #2e5c9a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn button:hover {
+  background-color: #1c4173;
+  transform: translateY(-2px);
+}
+
+.submit-btn button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 92, 154, 0.4);
+}
+
+/* Hover Effect for Form Fields */
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form select:hover {
+  border-color: #a3c1e1;
+}
+
+.status-message {
+  position: fixed;
+    bottom: 10%;
+    width: 25%;
+    left: 35%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+    z-index: 9999;
+}
+
+.status-message.messageShow {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* responsiveness */
+
+/* laptop large */
+@media (min-width: 1440px) and (max-width: 2559px){
+  .appointment-info{
+    width: 45%;
+  }
+}
+
+
+/*  laptop medium size */
+
+@media (min-width: 1024px) and (max-width: 1439px){
+  .contact-page{
+    padding-top: 120px;
+  }
+  .contact-page .heading{
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  .appointment-title{
+    font-size: 1.8em;
+  }
+  .appointment-content{
+    padding: 0;
+  }
+  .contact-form-container{
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+  }
+  .contact-form-container h3{
+    font-size: 1.8em;
+  }
+  .contact-section{
+    flex-direction: column;
+    padding: 0;
+    background-color: white;
+    gap: 40px;
+  }
+  .appointment-info{
+    width: 100%;
+    box-shadow: none;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+  }
+  .appointment-content{
+    padding: 20px;
+  }
+  .contact-form textarea{
+    height: 70px;
+  }
+  .appointment-details{
+    padding: 0 40px 0 0;
+  }
+}
+
+/*  tablet size */
+
+@media (min-width: 768px) and (max-width: 1023px){
+  .contact-page{
+    padding-top: 90px;
+  }
+  .contact-page .heading{
+    font-size: 1.4em;
+    margin-bottom: 30px;
+  }
+  .appointment-title{
+    font-size: 1.3em;
+  }
+  .appointment-content{
+    padding: 0;
+  }
+  .appointment-guidance{
+    padding-top: 0;
+  }
+  .appointment-description,
+  .appointment-guidance li{
+    font-size: 0.8em;
+  }
+  .contact-form-container{
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+  }
+  .contact-form-container h3{
+    font-size: 1.3em;
+  }
+  .contact-section{
+    flex-direction: column;
+    padding: 0;
+    background-color: white;
+    gap: 40px;
+  }
+  .contact-form label{
+    font-size: 0.8em;
+  }
+  .contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 5px 11px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+  .appointment-info{
+    width: 100%;
+    box-shadow: none;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+  }
+  .appointment-content{
+    padding: 20px;
+  }
+  .contact-form textarea{
+    height: 70px;
+  }
+  .appointment-details{
+    padding: 0 40px 0 0;
+  }
+  .submit-btn button{
+    padding: 6px;
+  }
+}
+
+/*  mobile large  size */
+
+@media (min-width: 425px) and (max-width: 767px){
+  .contact-page{
+    padding-top: 90px;
+  }
+  .contact-page .heading{
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  .appointment-title{
+    font-size: 1.3em;
+  }
+  .appointment-content{
+    padding: 0;
+  }
+  .status-message{
+    font-size: 0.6em;
+  }
+  .appointment-guidance{
+    padding-top: 0;
+  }
+  .appointment-description,
+  .appointment-guidance li{
+    font-size: 0.8em;
+  }
+  .contact-form-container{
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+  }
+  .contact-form-container h3{
+    font-size: 1.3em;
+  }
+  .contact-section{
+    flex-direction: column;
+    padding: 0;
+    background-color: white;
+    gap: 40px;
+  }
+  .contact-form label{
+    font-size: 0.8em;
+  }
+  .contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 5px 11px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+  .appointment-info{
+    width: 100%;
+    box-shadow: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .appointment-content{
+    padding: 20px;
+  }
+  .contact-form textarea{
+    height: 70px;
+  }
+  .appointment-details{
+    padding: 0 0 20px 0;
+  }
+  .submit-btn button{
+    padding: 6px;
+  }
+}
+
+/*  mobile medium  size */
+
+@media (min-width: 375px) and (max-width: 424px){
+  .contact-page{
+    padding-top: 90px;
+  }
+  .contact-page .heading{
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  .appointment-title{
+    font-size: 1.3em;
+  }
+  .appointment-content{
+    padding: 0;
+  }
+  .appointment-guidance{
+    padding-top: 0;
+  }
+  .appointment-description,
+  .appointment-guidance li{
+    font-size: 0.8em;
+  }
+  .status-message{
+    font-size: 0.6em;
+  }
+  .contact-form-container{
+    box-shadow: none;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+  }
+  .contact-form-container h3{
+    font-size: 1.3em;
+  }
+  .contact-section{
+    flex-direction: column;
+    padding: 0;
+    background-color: white;
+    gap: 40px;
+  }
+  .contact-form label{
+    font-size: 0.8em;
+  }
+  .contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 5px 11px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+  .appointment-info{
+    width: 100%;
+    box-shadow: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .appointment-content{
+    padding: 20px;
+  }
+  .contact-form textarea{
+    height: 70px;
+  }
+  .appointment-details{
+    padding: 0 0 20px 0;
+  }
+  .submit-btn button{
+    padding: 6px;
+  }
+}
+
+
+/*  mobile smallest */
+
+@media (max-width: 374px){
+  
+.contact-page{
+    padding-top: 90px;
+  }
+  .contact-page .heading{
+    font-size: 1.2em;
+    padding: 0 30px;
+    margin-bottom: 30px;
+  }
+  .appointment-title{
+    font-size: 1.3em;
+  }
+  .appointment-content{
+    padding: 0;
+  }
+  .appointment-guidance{
+    padding-top: 0;
+  }
+  .status-message{
+    font-size: 0.6em;
+  }
+  .appointment-description,
+  .appointment-guidance li{
+    font-size: 0.8em;
+  }
+  .contact-form-container{
+    box-shadow: none;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+  }
+  .contact-form-container h3{
+    font-size: 1.3em;
+    margin: 0 0 20px 0;
+  }
+  .dateAndTime{
+    flex-direction: column;
+  }
+  .contact-section{
+    flex-direction: column;
+    padding: 0;
+    background-color: white;
+    gap: 40px;
+  }
+  .contact-form label{
+    font-size: 0.8em;
+  }
+  .contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 5px 11px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+  .appointment-info{
+    width: 100%;
+    box-shadow: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .appointment-content{
+    padding: 20px;
+  }
+  .contact-form textarea{
+    height: 70px;
+  }
+  .appointment-details{
+    padding: 0 0 20px 0;
+  }
+  .submit-btn button{
+    padding: 6px;
+    font-weight: 300;
+    font-size: 0.9em;
+  }
+}

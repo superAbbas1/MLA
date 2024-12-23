@@ -1,0 +1,156 @@
+/* CTA.css */
+.cta-container-whole{
+  width: 100%;
+  background-color: white;
+  padding-bottom: 50px;
+}
+
+.cta-container {
+  background: linear-gradient(135deg, #333, #4a4a4a, #666, #8c8c8c, #b3b3b3);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+ 
+.cta-heading {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.cta-description {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height: 1.5;
+}
+
+.cta-button {
+  background-color: #ff4b2b;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+/* From Uiverse.io by SujitAdroja */
+.cta-button {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
+  font-weight: bold;
+  background: transparent;
+  position: relative;
+  transition: all 1s;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  color: black;
+  border: 2px solid white;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: -40px;
+  transform: skewX(45deg);
+  background-color: white;
+  z-index: -1;
+  transition: all 1s;
+}
+
+.cta-button:hover::before {
+  width: 160%;
+}
+
+
+/* reponseive */
+
+@media (min-width:768px) and (max-width: 1023px) {
+  .cta-container{
+    padding: 30px 15px;
+  }
+  .cta-heading{
+    font-size: 2em;
+  }
+  .cta-description{
+    font-size: 1em;
+  }
+  .cta-button{
+    font-size: 12px;
+  }
+}
+
+@media (min-width:425px) and (max-width: 767px) {
+  .cta-container{
+    padding: 30px 15px;
+  }
+  .cta-heading{
+    font-size: 2em;
+  }
+  .cta-description{
+    font-size: 1em;
+  }
+  .cta-button{
+    font-size: 12px;
+  }
+}
+
+
+@media (min-width:375px) and (max-width: 424px) {
+  .cta-container{
+    padding: 30px 15px;
+  }
+  .cta-heading{
+    font-size: 1.7em;
+  }
+  .cta-description{
+    font-size: 0.8em;
+  }
+  .cta-button{
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 374px) {
+  .cta-container{
+    padding: 30px 15px;
+  }
+  .cta-heading{
+    font-size: 1.5em;
+  }
+  .cta-description{
+    font-size: 0.8em;
+  }
+  .cta-button{
+    font-size: 10px;
+  }
+}

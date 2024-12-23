@@ -1,0 +1,96 @@
+.services-overview {
+    text-align: center;
+    padding: 50px 0;
+    padding-bottom: 75px;
+    background-color: #f8f9fa;
+}
+
+.services-overview h2 {
+    font-size: 36px;
+    color: black;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 30px 20px 30px;
+    margin: 0 auto;
+    width: var(--page-width);
+    flex-wrap: wrap;
+    animation: slideUp 2s;
+}
+
+.middle-one{
+    transform: scale(1.2);
+} 
+
+/*  responsiveness */
+
+@media (min-width: 1440px) and (max-width: 2559px){
+    .card{
+        width: 364px;
+        height: 284px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .services-overview h2{
+        font-size: 30px;
+    }
+    .services-grid{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 767px){
+    .services-overview{
+        padding-bottom: 25px;
+    }
+    .services-overview h2{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    .services-grid{
+        padding-top: 30px;
+        gap: 40px;
+        padding-bottom: 30px;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 424px){
+    .services-overview{
+        padding-bottom: 25px;
+    }
+    .services-overview h2{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    .services-grid{
+        padding-top: 30px;
+        gap: 40px;
+        padding-bottom: 30px;
+        justify-content: center;
+    }
+}
+
+@media  (max-width: 374px){
+    .services-overview{
+        padding-bottom: 25px;
+    }
+    .services-overview h2{
+        font-size: 1.7em;
+        margin-bottom: 10px;
+    }
+    .services-grid{
+        padding: 30px 0;
+        gap: 40px;
+        justify-content: center;
+    }
+}
