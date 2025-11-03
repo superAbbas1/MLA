@@ -13,16 +13,16 @@ const Header = ({ toggleSidebar }) => {
     <header className={`header-container ${isHomePage ? 'header__home' : ''}`}>
       <nav className="navbar-container">
         <div className='navbar__wrapper page-width'>
-          <Link className='header-logo-container' to="/">
+          <Link className='header-logo-container' to="/MLA">
             <img rel='preload' className="logo" src={isHomePage ? whitelogo : blackLogo} alt="Logo" />
           </Link>
 
-          <Link className='navbar-brand' to="/">
+          <Link className='navbar-brand' to="/MLA">
             Mansoor Law Associates
           </Link>
 
             <ul className="navbar-list sub-heading">
-              <li><Link to="/" className="nav-item">Home</Link></li>
+              <li><Link to="/MLA" className="nav-item">Home</Link></li>
               <li className="services-dropdown">
                 <span className="dropdown-trigger nav-item">
                   Services

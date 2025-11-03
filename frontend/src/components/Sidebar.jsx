@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         </div>
 
         <div className="sidebar-links sub-heading">
-          <NavLink className='sidebar-link-item' to="/" onClick={onClose}>Home</NavLink>
+          <NavLink className='sidebar-link-item' to="/MLA" onClick={onClose}>Home</NavLink>
           <div onClick={handleSidebarDropdown} className={`sidebar__services-dropdown sidebar-link-item ${dropdown ? 'active' : ''}`}>
             Services
             <svg xmlns="http://www.w3.org/2000/svg" width={'0.6rem'} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">

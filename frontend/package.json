@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://mansoor-law-associates.com",
+  "homepage": "https://superAbbas1.github.io/MLA",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -17,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +43,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-transform-private-property-in-object": "^7.25.9",
     "autoprefixer": "^10.4.19",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4"
   }
