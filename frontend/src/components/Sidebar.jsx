@@ -1,37 +1,57 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { NavLink } from "react-router-dom";
 
 import './Sidebar.css';
 import blacklogo from '../pages/header/images/logo-black.png';
 
 const Sidebar = ({ isOpen, onClose }) => {
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleSidebarDropdown = () => {
+    setDropdown(!dropdown);
+  }
+
   return (
-    <section className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <div className={`sidebar-wrapper ${isOpen ? 'open' : ''}`}>
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div className={`page-width sidebar-wrapper ${isOpen ? 'open' : ''}`}>
 
         <div className="sidebar-header">
-          <div className="logo-container">
-            <img className='logo' src={blacklogo} alt="Mansoor Law Associates" />
-          </div>
+          <img rel='preload' className='sidebar-logo' src={blacklogo} alt="Mansoor Law Associates" />
           <span className="close-sidebar" onClick={onClose}>&times;</span>
         </div>
-        <div className="sidebar-links">
-          <Link className='sidebar-link-item' to="/" onClick={onClose}>Home</Link>
-          <Link className='sidebar-link-item' to="/services" onClick={onClose}>Services</Link>
-          <Link className='sidebar-link-item' to="/about" onClick={onClose}>About</Link>
-          <Link className='sidebar-link-item' to="/contact" onClick={onClose}>Contact Us</Link>
+
+        <div className="sidebar-links sub-heading">
+          <NavLink className='sidebar-link-item' to="/" onClick={onClose}>Home</NavLink>
+          <div onClick={handleSidebarDropdown} className={`sidebar__services-dropdown sidebar-link-item ${dropdown ? 'active' : ''}`}>
+            Services
+            <svg xmlns="http://www.w3.org/2000/svg" width={'0.6rem'} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+
+            <div className="sidebar-dropdown-menu">
+
+              <NavLink className='sidebar-link-item' to="/immigration" onClick={onClose}>Immigration & Visa Consultation</NavLink>
+              <NavLink className='sidebar-link-item' to="/study-abroad" onClick={onClose}>Study Abroad Guidance</NavLink>
+              <NavLink className='sidebar-link-item' to="/legal-services" onClick={onClose}>Comprehensive Legal Services</NavLink>
+            </div>
+          </div>
+          <NavLink className='sidebar-link-item' to="/about" onClick={onClose}>About</NavLink>
+          <NavLink className='sidebar-link-item' to="/contact" onClick={onClose}>Contact Us</NavLink>
         </div>
-        <div className="sidebar-contact">
+
+        <div className="sidebar-contact sub-heading">
           <p><strong>Location:</strong> H5 DAV College Hostel1 Lower Mall, Lahore</p>
-          <p><strong>Email: </strong><a href="mailto:consultants@mansoor-law-associates.com" style={{ textDecoration: 'none' , color:'black' }} > 
+          <p><strong>Email: </strong><a href="mailto:consultants@mansoor-law-associates.com" >
             consultants@mansoor-law-associates.com</a>
-            </p>
-          <p><strong>Number:</strong> +92 336 4387792</p>
+          </p>
+          <p><strong>Number:</strong><a href='https://wa.me/+923224788568'> +92 322 4788568</a></p>
         </div>
-        <div className="sidebar-socials">
+
+
+        <div className="sidebar-socials sub-heading">
           <ul className="sidebar-social-list">
             <li className="icon-content">
-              <Link className='sidebar-footer-link-item'
+              <NavLink className='sidebar-footer-link-item'
                 data-social="facebook"
                 to="https://www.facebook.com/profile.php?id=61562389370965"
               >
@@ -42,14 +62,14 @@ const Sidebar = ({ isOpen, onClose }) => {
                     <path id="XMLID_835_" d="M81.703,165.106h33.981V305c0,2.762,2.238,5,5,5h57.616c2.762,0,5-2.238,5-5V165.765h39.064   c2.54,0,4.677-1.906,4.967-4.429l5.933-51.502c0.163-1.417-0.286-2.836-1.234-3.899c-0.949-1.064-2.307-1.673-3.732-1.673h-44.996   V71.978c0-9.732,5.24-14.667,15.576-14.667c1.473,0,29.42,0,29.42,0c2.762,0,5-2.239,5-5V5.037c0-2.762-2.238-5-5-5h-40.545   C187.467,0.023,186.832,0,185.896,0c-7.035,0-31.488,1.381-50.804,19.151c-21.402,19.692-18.427,43.27-17.716,47.358v37.752H81.703   c-2.762,0-5,2.238-5,5v50.844C76.703,162.867,78.941,165.106,81.703,165.106z" />
                   </g>
                 </svg>
-              </Link>
+              </NavLink>
               <div className="sidebar-social-tooltip">Facebook</div>
             </li>
 
 
 
             <li className="icon-content">
-              <Link className='sidebar-footer-link-item'
+              <NavLink className='sidebar-footer-link-item'
                 data-social="linkedin"
                 to='https://www.linkedin.com/company/mansoor-law-associates-4387792'
               >
@@ -68,14 +88,14 @@ const Sidebar = ({ isOpen, onClose }) => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </Link>
+              </NavLink>
               <div className="sidebar-social-tooltip">LinkedIn</div>
             </li>
 
 
 
             <li className="icon-content">
-              <Link className='sidebar-footer-link-item'
+              <NavLink className='sidebar-footer-link-item'
                 data-social="instagram"
                 to='https://www.instagram.com/mansoorlawassociates/'
               >
@@ -94,7 +114,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </Link>
+              </NavLink>
               <div className="sidebar-social-tooltip">Instagram</div>
             </li>
 
@@ -102,7 +122,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
         </div>
       </div>
-    </section>
+    </aside>
   );
 };
 

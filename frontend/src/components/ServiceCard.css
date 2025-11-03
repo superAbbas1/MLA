@@ -1,77 +1,64 @@
-
-/* From Uiverse.io by vamsidevendrakumar */ 
-.card {
-    width: 500px;
-    height: 320px;
-    border: none;
+.service-card {
+    width: 100%;
     perspective: 1000px;
-  }
-  
-  .card-inner {
+    height: 280px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.service-card-inner {
     width: 100%;
     height: 100%;
-    border: none; 
+    border: none;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-  }
-  
-  .card:hover .card-inner {
+}
+
+.service-card:hover .service-card-inner {
     transform: rotateY(180deg);
-  }
-  
-  .card-front,
-  .card-back {
+}
+
+.service-card-front,
+.service-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-  }
-  
-  .card-front {
+}
+
+.service-card-front {
     background-color: #f4f7fb;
     color: #333;
     border-radius: 10px;
     transform: rotateY(0deg);
-  }
+}
 
-  .service-front-content{
+.service-front-content {
     padding: 0 20px;
-  }
-  
-.service-front-content h3 {
-    font-size: 25px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 60px 0 10px 0;
-    font-weight: 400;
-    color: #0056b3;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.service-front-content .main-heading {
+    color: #006bb3;
+    line-height: 1.1;
 }
 
 .service-front-content p:nth-child(2) {
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #444; 
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #444;
     line-height: 1.4;
-}
-
-.p1 {
-    font-size: 0.9em;
-    color: #888;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: italic;
-    position: absolute;
-    bottom: 0;
-    right: 15px;
-    width: 100%;
-    text-align: right;
 }
 
 /* Back Content */
 
-.card-back {
+.service-card-back {
+    top: 0;
     background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 50%, #cfd9df 100%);
     border-radius: 10px;
     border: 2px solid white;
@@ -79,7 +66,7 @@
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.service-back-content{
+.service-back-content {
     padding: 15px 20px 0 20px;
 }
 
@@ -92,12 +79,10 @@
 }
 
 .service-back-content .list li {
-    font-size: 1.3em;
     color: #333;
     margin: 15px 0;
     position: relative;
-    padding-left: 38px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 20px;
 }
 
 /* Decorative bullet */
@@ -106,7 +91,6 @@
     position: absolute;
     left: 0;
     color: #0056b3;
-    font-size: 1.2em;
 }
 
 /* "Get" Button */
@@ -123,11 +107,10 @@
     justify-content: center;
     color: #ffff;
     gap: 10px;
-    font-weight:500;
+    font-weight: 500;
     border: 3px solid #ffffff4d;
     outline: none;
     overflow: hidden;
-    font-size: 15px;
     cursor: pointer;
     position: absolute;
     bottom: 20px;
@@ -181,180 +164,12 @@
     }
 }
 
-.service-card:nth-child(2) {
+.service-service-card:nth-child(2) {
     transform: scale(1.05);
 }
 
-@media (min-width: 1440px) and (max-width: 2559px){
-    .card{
-        width: 364px;
-        height: 284px;
-    }
-}
-
-
-@media (min-width: 1024px) and (max-width: 1439px){
-    .card{
-        width: 285px;
-        height: 255px;
-    }
-    .service-front-content h3 {
-        font-size: 20px;
-        margin-top: 22px;
-    }
-    .p1{
-        font-size: 12px;
-    }
-    .service-back-content .list li{
-        font-size: 16px;
-        padding-left: 20px;
-    }
-    .get-button{}
-}
-
-
-
-@media (min-width: 768px) and (max-width: 1023px){
-    .card{
-        width: 205px;
-        height: 210px;
-    }
-    .service-front-content h3 {
-        font-size: 15px;
-        margin-top: 22px;
-    }
-    .p1{
-        font-size: 9px;
-    }
-    .service-front-content p:nth-child(2) {
-        font-size: 12px;
-        letter-spacing: 1px;
-        color: #444;
-        line-height: 1.4;
-    }
-    .service-back-content .list li{
-        font-size: 12px;
-        margin: 10px 0;
-        padding-left: 15px;
-    }
-    .get-button{
-        font-size: 12px;
-        padding: 0px 10px;
-        bottom: 10px;
-        right: 10px;
-        gap: 5px;
-    }
-    .get-button .icon{
-        width: 18px;
-    }
-}
-
-@media (min-width: 425px) and (max-width: 767px){
-    .card{
-        width: 270px;
-        height: 210px;
-    }
-    .service-front-content h3 {
-        font-size: 15px;
-        margin-top: 22px;
-    }
-    .p1{
-        font-size: 9px;
-    }
-    .service-front-content p:nth-child(2) {
-        font-size: 12px;
-        letter-spacing: 1px;
-        color: #444;
-        line-height: 1.4;
-    }
-    .service-back-content .list li{
-        font-size: 12px;
-        margin: 10px 0;
-        padding-left: 15px;
-    }
-    .get-button{
-        font-size: 12px;
-        padding: 0px 10px;
-        bottom: 10px;
-        right: 10px;
-        gap: 5px;
-    }
-    .get-button .icon{
-        width: 18px;
-    }
-}
-
-/* mobile medium */
-
-@media (min-width: 375px) and (max-width: 424px){
-    .card{
-        width: 270px;
-        height: 210px;
-    }
-    .service-front-content h3 {
-        font-size: 15px;
-        margin-top: 22px;
-    }
-    .p1{
-        font-size: 9px;
-    }
-    .service-front-content p:nth-child(2) {
-        font-size: 12px;
-        letter-spacing: 1px;
-        color: #444;
-        line-height: 1.4;
-    }
-    .service-back-content .list li{
-        font-size: 12px;
-        margin: 10px 0;
-        padding-left: 15px;
-    }
-    .get-button{
-        font-size: 12px;
-        padding: 0px 10px;
-        bottom: 10px;
-        right: 10px;
-        gap: 5px;
-    }
-    .get-button .icon{
-        width: 18px;
-    }
-}
-
-/* mobile smallest */
-
-@media (max-width: 374px){
-    .card{
-        width: 88%;
-        height: 210px;
-    }
-    .service-front-content h3 {
-        font-size: 1em;
-        margin-top: 22px;
-    }
-    .p1{
-        bottom: 2%;
-        font-size: 0.2em;
-    }
-    .service-front-content p:nth-child(2) {
-        font-size: 0.7em;
-        letter-spacing: 1px;
-        color: #444;
-        line-height: 1.4;
-    }
-    .service-back-content .list li{
-        font-size: 12px;
-        margin: 10px 0;
-        padding-left: 15px;
-    }
-    .get-button{
-        font-size: 12px;
-        padding: 0px 10px;
-        bottom: 10px;
-        right: 10px;
-        gap: 5px;
-    }
-    .get-button .icon{
-        width: 18px;
+@media screen and (max-width: 768px) {
+    .service-card {
+        height: 200px;
     }
 }

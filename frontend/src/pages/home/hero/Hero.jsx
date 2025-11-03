@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 import Loader from '../../../components/Loader';
 import './Hero.css';
@@ -6,73 +7,66 @@ import plane from '../images/plane.png';
 
 const Home = () => {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(""); // State to hold message
-  const [isMessageVisible, setIsMessageVisible] = useState(false); // For message visibility
-  const [isLoading , setIsLoading] = useState(false);
-  
+  const [message, setMessage] = useState("");
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const isValidEmail = (email) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  var emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleBookAppointment = async () => {
-    if (!isValidEmail(email)) {
-      setMessage("Enter a valid input");
+    if (email === "") {
+      setMessage("Please enter Email");
       setIsMessageVisible(true);
-      setTimeout(() => {
-        setIsMessageVisible(false);
-      }, 2500);
+      setTimeout(() => setIsMessageVisible(false), 2500);
       return;
     }
 
-    setIsLoading(true);
+    else if (!emailTest) {
+      setMessage("Enter a valid email address");
+      setIsMessageVisible(true);
+      setTimeout(() => setIsMessageVisible(false), 2500);
+      return;
+    }
 
-    try {
-      const response = await fetch("https://mla-six.vercel.app/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+    else if (emailTest) {
+      setIsLoading(true);
 
-      if (response.ok) {
-        setMessage("Appointment email sent successfully! If not found, check spam folder");
-      } else {
-        setMessage("Failed to send the email. Please try again.");
+      try {
+        const templateParams = {
+          email: email,
+        };
+        const result = await emailjs.send(
+          "mla_mail_service",
+          "appointment_req_temp",
+          templateParams,
+          "a1HWWI16Tgkj7rstu"
+        );
+
+        console.log("EmailJS result:", result.text);
+        setMessage("Appointment email sent successfully! Please check your inbox or spam folder.");
+      } catch (error) {
+        console.error("EmailJS error:", error);
+        setMessage("Failed to send email. Please try again later.");
       }
 
-      // Show message 
-      setIsMessageVisible(true);
-      setIsLoading(false);
-
-      // Hide message after 5 seconds
-      setTimeout(() => {
-        setIsMessageVisible(false);
-      }, 3000);
-      
-    } catch (error) {
-      console.error("Error sending email:", error);
-      setMessage("An error occurred while sending the email.");
-      
       setIsLoading(false);
       setIsMessageVisible(true);
-      setTimeout(() => {
-        setIsMessageVisible(false);
-      }, 3000);
-    }
-  };
+      setTimeout(() => setIsMessageVisible(false), 3000);
+    };
+  }
 
   return (
     <>
-      <section id="home" className="home">
-        <div className='home-row'>
+      <section className="hero-section">
+        <div className='hero-section__wrapper page-width'>
           <div className="content">
-            <h1 className="">Welcome to <br /> Mansoor Law Associates</h1>
-            <p className="">Your trusted partner in immigration, law firm, and study abroad services.</p>
+            <h1 className="main-heading">Welcome to <br /> Mansoor Law Associates</h1>
+            <p className="sub-heading">Your trusted partner in immigration, law firm, and study abroad services.</p>
 
             <div className="appointment-container">
               <input
@@ -84,27 +78,28 @@ const Home = () => {
                 required
               />
               <button
-                className="book-button"
+                className="book-button sub-heading"
                 onClick={handleBookAppointment}
               >
-               <span className={`book-button-text ${isLoading ? 'button-text-gone' : ''}`}> Book Appointment </span>
-               <span className={`loader-container ${isLoading ? 'loading-start' : ''}`}><Loader/></span>
+                <span className={`book-button-text ${isLoading ? 'button-text-gone' : ''}`}> Book Appointment </span>
+                <span className={`loader-container ${isLoading ? 'loading-start' : ''}`}><Loader /></span>
               </button>
             </div>
           </div>
 
           <div className='plane-image'>
-            <img src={plane} alt="" />
+            <img rel='preload' src={plane} alt="" />
           </div>
         </div>
-      </section>
 
-      {/* Message Box */}
-      <div 
-        className={`message-box ${isMessageVisible ? 'show' : 'hide'}`} 
+         <div
+        className={`sub-heading message-box ${isMessageVisible ? 'show' : 'hide'}`}
       >
         <span>{message}</span>
       </div>
+      </section>
+
+     
     </>
   );
 };

@@ -6,8 +6,8 @@ function CountryCard({ title, description, backgroundClass }) {
     <div className={`country-card ${backgroundClass}`}>
       <div className="country-content">
         <div className="overlay-text">
-          <h4>{title}</h4>
-          <p>{description}</p>
+          <div className='main-heading'>{title}</div>
+          <p className='sub-heading'>{description}</p>
         </div>
         <div className="go-corner">
           <svg className="go-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

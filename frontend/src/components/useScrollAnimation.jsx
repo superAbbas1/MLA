@@ -1,31 +1,38 @@
 import { useEffect } from "react";
 
-const useScrollAnimation = () => {
+const useScrollAnimation = (path) => {
   useEffect(() => {
-    const sections = document.querySelectorAll(".animate-section"); // Select all elements you want to animate
+    const resetElements = document.querySelectorAll(".animate-on-scroll");
+    resetElements.forEach((el) => {
+      el.classList.remove("visible");
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Add the slideUpAnimation class to trigger the animation when the element comes into view
-          entry.target.classList.add("slideUpAnimation");
-          observer.unobserve(entry.target); // Stop observing after the animation is triggered
-        }
+      const children = el.querySelectorAll(":scope > div");
+      children.forEach((child) => {
+        child.style.transitionDelay = "0ms";
       });
-    }, { threshold: 0.4 }); // Trigger when 10% of the element is visible
-
-    // Start observing each section
-    sections.forEach(section => {
-      observer.observe(section);
     });
 
-    return () => {
-      // Cleanup observer when the component is unmounted
-      sections.forEach(section => {
-        observer.unobserve(section);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const parent = entry.target;
+          parent.classList.add("visible");
+
+          const children = parent.querySelectorAll(":scope > div");
+          children.forEach((child, index) => {
+            child.style.transitionDelay = `${index * 150}ms`;
+          });
+
+          // Only animate once per page view
+          observer.unobserve(parent);
+        }
       });
-    };
-  }, []);
+    }, { threshold: 0.3 });
+
+    resetElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [path]);
 };
 
 export default useScrollAnimation;

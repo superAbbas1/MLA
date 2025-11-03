@@ -1,36 +1,27 @@
-.about-us-page {
-    width: 100%;
-}
-
-.about-us-section {
+.about-us__section {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     overflow: hidden;
     background-color: #f3f8fc;
-    border-radius: 20px 20px 50% 50%;
-    padding: 6% 0 3%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 70px;
 }
 
-.about-us-container {
+.about-us__wrapper {
     color: #333;
     text-align: center;
     display: flex;
-    width: var(--page-width);
-    margin: 0 auto;
-    padding: 0 30px;
-
     transform: translateY(30px);
-    opacity: 0; 
+    opacity: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     animation: slideUp 0.8s ease-out forwards;
 }
 
 .about-us-content {
     flex: 50%;
-    padding: 0 50px;
+    padding: 0 3rem;
 }
 
 .about-us-picture {
@@ -67,201 +58,22 @@
     border-radius: 10%;
 }
 
-.about-us-container h2 {
-    font-size: 2rem;
-    font-weight: 500;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.about-us__wrapper .main-heading {
     margin-bottom: 15px;
     color: #0056b3;
 }
 
-.about-us-container p {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    line-height: 1.5;
+.about-us__wrapper .sub-heading {
+    letter-spacing: 0.5px;
+    line-height: 1.2;
     text-align: left;
     color: #555;
-    font-family: var(--font-desc);
 }
-
-
 
 /* ---- rresponsiveness --- */
 
-@media (min-width: 1024px) and (max-width: 1439px) {
-    .about-us-section {
-        padding: 7% 0 7%;
-    }
-
+@media screen and (max-width: 768px) {
     .about-us-content {
-        flex: 55%;
-    }
-
-    .about-us-pic-round {
-        top: 30px;
-        width: 220px;
-        height: 220px;
-    }
-
-    .picture-ceo {
-        width: 70%;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    .about-us-section {
-        padding: 7% 0 5%;
-        border-radius: 20px 20px 30% 30%;
-    }
-
-    .about-us-content {
-        padding: 0 10px;
-    }
-
-    .about-us-container h2 {
-        font-size: 1.4em;
-    }
-
-    .about-us-container p {
-        font-size: 0.8em;
-        letter-spacing: 0.5px;
-    }
-
-    .about-us-content {
-        flex: 55%;
-    }
-
-    .about-us-pic-round {
-        top: 30px;
-        width: 190px;
-        height: 190px;
-    }
-
-    .picture-ceo {
-        width: 70%;
-    }
-}
-
-@media (min-width: 425px) and (max-width: 767px) {
-    .about-us-section {
-        padding: 15% 0 0%;
-        border-radius: 20px 20px 30% 30%;
-        margin-bottom: 50px;
-    }
-
-    .about-us-content {
-        padding: 0 10px;
-    }
-
-    .about-us-container {
-        flex-direction: column;
-    }
-
-    .about-us-container h2 {
-        font-size: 1.4em;
-    }
-
-    .about-us-container p {
-        font-size: 0.8em;
-        letter-spacing: 0.5px;
-    }
-
-    .about-us-content {
-        flex: 55%;
-    }
-
-    .about-us-pic-wrapper{
-        position: relative;
-    }
-    .about-us-pic-round {
-        top: 30px;
-        width: 190px;
-        height: 190px;
-    }
-
-    .picture-ceo {
-        width: 50%;
-    }
-}
-
-@media (min-width: 375px) and (max-width: 424px) {
-    .about-us-section {
-        padding: 15% 0 0%;
-        border-radius: 20px 20px 30% 30%;
-        margin-bottom: 50px;
-    }
-
-    .about-us-content {
-        padding: 0 10px;
-    }
-
-    .about-us-container {
-        flex-direction: column;
-    }
-
-    .about-us-container h2 {
-        font-size: 1.4em;
-    }
-
-    .about-us-container p {
-        font-size: 0.8em;
-        letter-spacing: 0.5px;
-    }
-    .about-us-content {
-        flex: 55%;
-    }
-
-    .about-us-pic-wrapper{
-        position: relative;
-    }
-    .about-us-pic-round {
-        top: 30px;
-        width: 190px;
-        height: 190px;
-    }
-
-    .picture-ceo {
-        width: 50%;
-    }
-}
-
-@media (max-width: 374px) {
-    .about-us-section {
-        padding: 15% 0 0%;
-        border-radius: 20px 20px 30% 30%;
-        margin-bottom: 50px;
-    }
-
-    .about-us-content {
-        padding: 0 10px;
-    }
-
-    .about-us-container {
-        flex-direction: column;
-    }
-
-    .about-us-container h2 {
-        font-size: 1.4em;
-    }
-
-    .about-us-container p {
-        font-size: 0.8em;
-        letter-spacing: 0.5px;
-    }
-    .about-us-content {
-        flex: 55%;
-    }
-
-    .about-us-pic-wrapper{
-        position: relative;
-    }
-    .about-us-pic-round {
-        top: 30px;
-        width: 190px;
-        height: 190px;
-    }
-
-    .picture-ceo {
-        width: 60%;
+        padding: 0;
     }
 }

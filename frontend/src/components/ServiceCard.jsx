@@ -2,27 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServiceCard.css'; // Assuming the CSS is in this file
 
-const ServiceCard = ({ title, subtitle, listItems, classname }) => {
+const ServiceCard = ({ title, subtitle, listItems, classname, link }) => {
   return (
-    <div className={`card ${classname ? classname : ''}`}>
-      <div className="card-inner">
-        <div className="card-front">
+    <div className={`service-card ${classname ? classname : ''}`}>
+      <div className="service-card-inner">
+        <div className="service-card-front">
           <div className="service-front-content">
-            <h3>{title}</h3>
-            <p>{subtitle}</p>
-            <p className="p1">TURN around this block by hovering it</p>
+            <h3 className='main-heading'>{title}</h3>
+            <p className='sub-heading'>{subtitle}</p>
           </div>
         </div>
-        <div className="card-back">
+        <div className="service-card-back">
           <div className="service-back-content">
-            <ul className="list"> 
+            <ul className="list sub-heading"> 
               {listItems.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
-            <Link to="/contact"  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <button className="get-button"> 
-                GET
+            <Link to={link}  onClick={() => window.scrollTo({ top: 0 })}>
+              <button className="get-button sub-heading"> 
+                MORE
                 <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
                   <path
                     fillRule="evenodd"

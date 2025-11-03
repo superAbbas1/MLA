@@ -1,0 +1,80 @@
+.service-page {
+    width: 100%;
+}
+
+.service-hero__container {
+    position: relative;
+    height: 20rem;
+}
+
+.service-hero__container:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.service-hero__container:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.service-hero__container.immigration:before {
+    background-image: url('./images/immigration-consultancy.jpg');
+    background-position: top;
+}
+
+.service-hero__container.study-abroad:before {
+    background-image: url('./images/study-abroad.jpg');
+}
+
+.service-hero__container.legal-services:before {
+    background-image: url('./images/legal-services.jpg');
+}
+
+.service-hero__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    color: white;
+}
+
+.service-hero__wrapper .large-main-heading {
+    font-weight: 600;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.service-hero__wrapper .main-heading {
+    margin: 0;
+    line-height: 1.1;
+}
+
+.service-content {
+    padding: 2rem 0;
+}
+.service-content__wrapper p:last-child {
+    margin-bottom: 0;
+}
+
+.service-features__wrapper {
+    padding: 2rem 0;
+}
+.service-features__wrapper .main-heading {
+    text-align: center;
+    margin: 0 0 2rem;
+}

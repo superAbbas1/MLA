@@ -25,17 +25,20 @@ app.post("/send-email", (req, res) => {
       html: `
         <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://yourdomain.com/logo.png" alt="Mansoor Law Associates Logo" style="max-width: 150px;" />
+            <img src="https://mansoor-law-associates.com/logo.png" alt="Mansoor Law Associates Logo" style="max-width: 150px;" />
           </div>
           <h2 style="color: #e6683c;">Appointment Confirmation</h2>
-          <p><strong>Dear Client,</strong></p>
-          <p>Thank you for scheduling your appointment with <strong>Mansoor Law Associates</strong>. We are excited to assist you with your legal and immigration needs. Our dedicated team is committed to providing tailored solutions to meet your unique requirements.</p>
-          <p>We strive to make the process seamless and efficient, ensuring you receive the best possible guidance every step of the way. If you have any questions or need further assistance regarding your appointment, don’t hesitate to contact us.</p>
-          <p>We look forward to working with you and helping you achieve your goals!</p>
+          <p><strong>Dear Client,</strong>
+          <br/>
+          Thank you for scheduling your appointment with <strong>Mansoor Law Associates</strong>. We are excited to assist you with your legal and immigration needs. Our dedicated team is committed to providing tailored solutions to meet your unique requirements.
+          <br/>
+          We strive to make the process seamless and efficient, ensuring you receive the best possible guidance every step of the way. If you have any questions or need further assistance regarding your appointment, don’t hesitate to contact us.
+          <br/>
+          We look forward to working with you and helping you achieve your goals!</p>
           <hr style="border: none; border-top: 1px solid #ccc;" />
           <p style="text-align: center; font-size: 14px; color: #555;">
             <strong>Mansoor Law Associates</strong><br />
-            <a href="mailto:consultants@mansoorlawassociates.com" style="color: #e6683c;">consultants@mansoorlawassociates.com</a> | +92 336 4387792<br />
+            <a href="mailto:consultants@mansoorlawassociates.com" style="color: #e6683c;">consultants@mansoor-law-associates.com</a> | +92 336 4387792<br />
             <a href="https://mansoor-law-associates.com" style="color: #e6683c;">www.mansoor-law-associates.com</a>
           </p>
         </div>
@@ -106,9 +109,7 @@ app.post("/api/contact", async (req, res) => {
           <strong>Meeting Details:</strong><br>
           The consultation will take place via Google Meet. We will send you the meeting link **one hour before** the scheduled time.
         </p>
-  
         <hr style="border: none; border-top: 1px solid #ccc;" />
-  
         <p style="text-align: center; font-size: 14px; color: #555;">
           <strong>Mansoor Law Associates</strong><br />
           <a href="mailto:consultants@mansoor-law-associates.com" style="color: #e6683c;">consultants@mansoor-law-associates.com</a> | +92 336 4387792<br />

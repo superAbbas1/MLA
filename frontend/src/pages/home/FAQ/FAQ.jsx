@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import './FAQ.css';
 
 function FAQ() {
-  // State to keep track of the active FAQ
   const [activeIndex, setActiveIndex] = useState(null);
 
-  // Function to toggle the active FAQ
   const toggleFAQ = (index) => {
-    // If clicked again on the same FAQ, close it by setting activeIndex to null
     if (activeIndex === index) {
       setActiveIndex(null);
     } else {
@@ -17,13 +14,14 @@ function FAQ() {
 
   return (
     <>
-      <section className="faq-whole-section">
-        <section className="faq-section animate-section">
-          <h2>Frequently Asked Questions</h2>
+      <section className="faq-section">
+      <h2 className="main-heading">Frequently Asked Questions</h2>
+        <div className="faq-section__wrapper animate-on-scroll page-width sub-heading">
+          
 
           <div className="faq-item">
             <div className="faq-question" onClick={() => toggleFAQ(1)}>
-              <h3>What are the basic requirements to study abroad?</h3>
+              What are the basic requirements to study abroad?
               <span className="faq-arrow">{activeIndex === 1 ? "-" : "+"}</span>
             </div>
             <div className={`faq-answer ${activeIndex === 1 ? "active" : ""}`}>
@@ -42,7 +40,7 @@ function FAQ() {
 
           <div className="faq-item">
             <div className="faq-question" onClick={() => toggleFAQ(2)}>
-              <h3>What is the minimum CGPA required for admission to universities abroad?</h3>
+              What is the minimum CGPA required for admission to universities abroad?
               <span className="faq-arrow">{activeIndex === 2 ? "-" : "+"}</span>
             </div>
             <div className={`faq-answer ${activeIndex === 2 ? "active" : ""}`}>
@@ -52,7 +50,7 @@ function FAQ() {
 
           <div className="faq-item">
             <div className="faq-question" onClick={() => toggleFAQ(3)}>
-              <h3>Do I need to take an English proficiency test like IELTS or TOEFL?</h3>
+              Do I need to take an English proficiency test like IELTS or TOEFL?
               <span className="faq-arrow">{activeIndex === 3 ? "-" : "+"}</span>
             </div>
             <div className={`faq-answer ${activeIndex === 3 ? "active" : ""}`}>
@@ -62,7 +60,7 @@ function FAQ() {
 
           <div className="faq-item">
             <div className="faq-question" onClick={() => toggleFAQ(4)}>
-              <h3>How long does the visa process take for studying abroad?</h3>
+              How long does the visa process take for studying abroad?
               <span className="faq-arrow">{activeIndex === 4 ? "-" : "+"}</span>
             </div>
             <div className={`faq-answer ${activeIndex === 4 ? "active" : ""}`}>
@@ -72,14 +70,14 @@ function FAQ() {
 
           <div className="faq-item">
             <div className="faq-question" onClick={() => toggleFAQ(5)}>
-              <h3>Can I work while studying abroad?</h3>
+              Can I work while studying abroad?
               <span className="faq-arrow">{activeIndex === 5 ? "-" : "+"}</span>
             </div>
             <div className={`faq-answer ${activeIndex === 5 ? "active" : ""}`}>
               <p>Yes, many countries allow international students to work part-time (usually up to 20 hours per week during term time). However, regulations vary, so check the rules for your country of study. Some countries, like the USA, restrict work to on-campus, while others, like Canada and Australia, offer more flexibility.</p>
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </>
   );

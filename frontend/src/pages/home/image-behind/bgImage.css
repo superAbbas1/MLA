@@ -1,43 +1,44 @@
 .background-section {
-    position: relative;
-    height: 500px;
-
+    height: 400px;
     background-image: url('../images/uk-bg.png');
     background-repeat: no-repeat;
+    background-position: center 30%;
     background-size: cover;
     background-attachment: fixed;
 }
 
-
-@media (min-width: 1440px) and (max-width: 2559px){
-    .background-section{
-        height: 350px;
-    }
+.background-section-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 100;
+    color:white;
+    line-height: 1;
+    font-size: 4.4rem;
+    text-align: left;
+    font-family: "Meta", sans-serif;
+}
+.background-section-content p {
+    margin: 0;
+}
+.background-section-content strong {
+    font-weight: bold;
+    -webkit-text-stroke: 3px white;
 }
 
-@media (min-width: 1024px) and (max-width: 1439px){
-    .background-section{
-        height: 300px;
-    }   
-}
-
-@media (min-width: 768px) and (max-width: 1023px){
-    .background-section{
-        height: 250px;
-    }   
-}
-
-@media (min-width: 768px) and (max-width: 1023px){
-    .background-section{
-        height: 250px;
-    }   
-}
-
-@media (max-width: 767px){
-    .background-section{
+@media screen and (max-width: 768px) {
+    .background-section {
         background-image: url('../images/bg-image-mobile.png');
-    }
-    .background-section{
         height: 300px;
+    }
+
+    .background-section-content {
+        font-size: 3rem;
+    }
+    .background-section-content strong {
+         -webkit-text-stroke: 1px white;
     }
 }

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
 import "./Contact.css";
 import Loader from "../../components/Loader";
 import SocialToolTips from "../../components/SocialToolTips";
 
+import useScrollAnimation from "../../components/useScrollAnimation";
+
 const Contact = () => {
-  const [isLoading , setIsLoading] = useState(false);
+  useScrollAnimation();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,11 +19,8 @@ const Contact = () => {
   });
 
   const [validInputs, setValidInputs] = useState({
-    name: true,
     email: true,
-    date: true,
-    time: true,
-    message: true
+    date: true
   });
 
   const [statusMessage, setStatusMessage] = useState("");
@@ -27,24 +28,16 @@ const Contact = () => {
 
   const validateInput = (id, value) => {
     switch (id) {
-      case "name":
-        return value.trim() !== "";
       case "email":
         return /\S+@\S+\.\S+/.test(value);
       case "date":
         const selectedDate = new Date(value.trim());
         const currentDate = new Date();
 
-        // Set the time to 00:00:00 for both current and selected dates
         currentDate.setHours(0, 0, 0, 0);
         selectedDate.setHours(0, 0, 0, 0);
 
-        // Ensure the selected date is strictly greater than today (not today or in the past)
         return selectedDate > currentDate;
-      case "time":
-        return value.trim() !== "";
-      case "message":
-        return value.trim() !== "";
       default:
         return false;
     }
@@ -54,44 +47,68 @@ const Contact = () => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
 
-    // Validate the input live
-    setValidInputs({ ...validInputs, [id]: validateInput(id, value) });
+    const fieldsToValidate = ["email", "date"];
+    if (fieldsToValidate.includes(id)) {
+      setValidInputs({ ...validInputs, [id]: validateInput(id, value) });
+    }
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check all inputs
-    const isFormValid = Object.keys(validInputs).every(
-      (key) => validInputs[key]
-    );
+    const invalidFields = Object.entries(validInputs)
+      .filter(([_, value]) => !value)
+      .map(([key]) => key);
 
-    if (!isFormValid) {
-      setStatusMessage(" input field");
+    const entries = Object.entries(formData);
+    const entriesToCheck = entries.slice(0, -1);
+
+    const emptyFields = entriesToCheck
+      .filter(([_, value]) => !value?.trim())
+      .map(([key]) => key);
+
+    if ((emptyFields.length > 0) || (invalidFields.length > 0)) {
+      setStatusMessage(
+        [
+          emptyFields.length > 0 && `Empty Fields: ${emptyFields.join(', ')}`,
+          invalidFields.length > 0 && `Invalid Fields: ${invalidFields.join(', ')}`
+        ]
+          .filter(Boolean)
+          .join(' | ')
+      );
       setStatusMessageVisible(true);
-      setTimeout(() => {
-        setStatusMessageVisible(false);
-      }, 3000);
+      setTimeout(() => setStatusMessageVisible(false), 4000);
       return;
     }
+    else {
 
-    setIsLoading(true);
+      setIsLoading(true);
 
+      try {
+        const meetingDetails =
+          formData.meetingPreference === "online"
+            ? "The consultation will take place via Google Meet. We will send you the meeting link one hour before the scheduled time."
+            : "The consultation will take place at our office. We will reply shortly with a confirmation.";
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+        const templateParams = {
+          name: formData.name,
+          email: formData.email,
+          date: formData.date,
+          time: formData.time,
+          meetingPreference: formData.meetingPreference,
+          message: formData.message || "",
+          meeting_details: meetingDetails
+        };
 
-      if (response.ok) {
+        await emailjs.send(
+          'mla_mail_service',
+          'appointment_book_temp',
+          templateParams,
+          'a1HWWI16Tgkj7rstu'
+        );
+
         setStatusMessage("Mail sent successfully!");
-        setStatusMessageVisible(true);
-        setIsLoading(false);
-        setTimeout(() => {
-          setStatusMessageVisible(false);
-        }, 3000);
         setFormData({
           name: "",
           email: "",
@@ -107,53 +124,48 @@ const Contact = () => {
           time: true,
           message: true,
         });
-      } else {
+      } catch (error) {
+        console.error("EmailJS error:", error);
         setStatusMessage("Could not send email - try again.");
-        setStatusMessageVisible(true);
+      } finally {
         setIsLoading(false);
-        setTimeout(() => {
-          setStatusMessageVisible(false);
-        }, 3000);
+        setStatusMessageVisible(true);
+        setTimeout(() => setStatusMessageVisible(false), 3000);
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setStatusMessage("Could not send email - try again.");
-      setStatusMessageVisible(true);
-      setIsLoading(false);
-      setTimeout(() => {
-        setStatusMessageVisible(false);
-      }, 3000);
     }
   };
 
 
   return (
     <section className="contact-page">
-      <h1 className="heading">Try First FREE Consultancy with us</h1>
-      <section className="contact-section">
+      <h1 className="main-heading">Try First FREE Consultancy with us</h1>
+      <div className="contact-section__wrapper animate-on-scroll page-width">
         {/* Contact Information Section */}
-        <div className="appointment-info">
-          <div className="appointment-content">
-            <h2 className="appointment-title">Schedule Your Free Consultation</h2>
-            <p className="appointment-description">
-              Follow these steps to book your consultation:
-            </p>
-            <ul className="appointment-guidance">
-              <li>Fill out the form with your details and any questions.</li>
-              <li>Click submit to complete your booking.</li>
-              <li>Receive a confirmation email with your appointment details.</li>
-              <li>Our team will reach out to confirm the session time.</li>
-            </ul>
-          </div>
-          <div className="appointment-details">
-            <SocialToolTips />
+        <div className="appointment-schedule__container">
+          <div className="appointment-schedule__wrapper">
+            <div className="appointment-content">
+              <h2 className="main-heading">Schedule Your Free Consultation</h2>
+              <p className="sub-heading">
+                Follow these steps to book your consultation:
+              </p>
+              <ul className="appointment-guidance sub-heading">
+                <li>Fill out the form with your details and any questions.</li>
+                <li>Click submit to complete your booking.</li>
+                <li>Receive a confirmation email with your appointment details.</li>
+                <li>Our team will reach out to confirm the session time.</li>
+              </ul>
+            </div>
+
+            <div className="appointment-social-details">
+              <SocialToolTips />
+            </div>
           </div>
         </div>
 
         {/* Contact Form Section */}
-        <div className="contact-form-container">
-          <h3>Book Your Appointment Now</h3>
-          <form className="contact-form" onSubmit={handleSubmit}>
+        <div className="contact-form__container">
+          <h3 className="main-heading">Book Your Appointment Now</h3>
+          <form className="contact-form sub-heading" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name">Name</label>
               <input
@@ -162,9 +174,6 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your name"
-                style={{
-                  borderColor: validInputs.name ? "" : "red",
-                }}
               />
             </div>
 
@@ -183,8 +192,8 @@ const Contact = () => {
             </div>
 
             <div className="dateAndTime">
-              <div style={{ width: "100%" }}>
-                <label htmlFor="date">Preferred Date <span style={{fontSize:'0.55em', fontFamily:'revert', color:'grey'}}>(only future selected dates will be considered as valid)</span></label>
+              <div>
+                <label htmlFor="date">Preferred Date <span style={{ fontSize: '0.55em', fontFamily: 'revert', color: 'grey' }}>(only future selected dates will be considered as valid)</span></label>
                 <input
                   type="date"
                   id="date"
@@ -196,16 +205,13 @@ const Contact = () => {
                 />
               </div>
 
-              <div style={{ width: "100%" }}>
+              <div>
                 <label htmlFor="time">Preferred Time</label>
                 <input
                   type="time"
                   id="time"
                   value={formData.time}
                   onChange={handleChange}
-                  style={{
-                    borderColor: validInputs.time ? "" : "red",
-                  }}
                 />
               </div>
             </div>
@@ -229,22 +235,19 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your message"
-                style={{
-                  borderColor: validInputs.message ? "" : "red",
-                }}
               ></textarea>
             </div>
 
             <div className="submit-btn">
               <button type="submit">
                 <span className={`book-button-text ${isLoading ? 'button-text-gone' : ''}`}>Submit</span>
-                <span className={`loader-container ${isLoading ? 'loading-start-submit' : ''}`}><Loader/></span>
-                </button>
+                <span className={`loader-container ${isLoading ? 'loading-start-submit' : ''}`}><Loader /></span>
+              </button>
             </div>
           </form>
-          {statusMessage && <div className={`status-message ${statusMessageVisible ? 'messageShow' : ''}`}><span>{statusMessage}</span></div>}
         </div>
-      </section>
+      </div>
+      {statusMessage && <div className={`status-message sub-heading ${statusMessageVisible ? 'messageShow' : ''}`}><span>{statusMessage}</span></div>}
     </section>
   );
 };

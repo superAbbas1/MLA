@@ -15,9 +15,7 @@ function Home() {
       <Country />
       <BgImage />
       <FAQ />
-      <div className='animate-section'>
-        <CTA />
-      </div>
+      <CTA />
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Services.css';
+// import './Services.css';
 
 import ServiceOneSection from './ServiceOneSection';
 import CTA from '../home/CTA/CTA';
@@ -7,8 +7,8 @@ import CTA from '../home/CTA/CTA';
 const Services = () => {
   return (
     <section className="services-page">
-      <section class="services-page-section">
-        <div class="services-container">
+      <section className="services-page-section">
+        <div className="services-container">
           <h2>- Services -</h2>
           <p>
             Empowering You with Comprehensive Solutions

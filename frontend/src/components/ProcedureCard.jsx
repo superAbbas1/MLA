@@ -4,7 +4,7 @@ import './ProcedureCard.css';
 const ProcedureCard = ({ title, desc , pfcImage }) => {
     return (
         <>
-            <div className={`procedure-card ${pfcImage}`}>
+            <div className={`procedure-card ${pfcImage} sub-heading`}>
                 <div className="procedure-first-content">
                     <span>{title}</span>
                 </div>

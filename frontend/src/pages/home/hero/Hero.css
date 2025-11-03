@@ -1,11 +1,10 @@
-#home {
+.hero-section {
     position: relative;
-    height: 50vh;
     overflow: hidden;
     box-shadow: 0 0 10px black;
 }
 
-#home::before {
+.hero-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -30,40 +29,37 @@
     }
 }
 
-.home-row {
+.hero-section__wrapper {
     height: 100%;
-    width: var(--page-width);
     display: flex;
-    margin: 0 auto;
-    gap: 44%;
-    padding: 0 30px;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
+    margin-top: 10rem;
+    margin-bottom: 8rem;
 }
 
-.content {
+.hero-section__wrapper .content {
     text-align: left;
     color: white;
     position: relative;
 }
 
-.content h1 {
-    font-size: 3em;
+.hero-section .content .main-heading {
     margin-top: 0;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1.1;
     margin-bottom: 10px;
 }
 
-.plane-image {
-    z-index: 2;
-}
+/* .plane-image {
+    z-index: 0;
+} */
 
 .content p {
     animation: fadeIn 3.5s;
     opacity: 1;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
-    font-size: 18px;
 }
 
 @keyframes fly {
@@ -116,46 +112,48 @@
     display: inline-block;
     font-weight: 100;
     padding: 0 20px;
-    font-size: 16px;
-    font-family: var(--font-desc);
     height: 35px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
 }
 
-.book-button-text{
+.book-button-text {
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
 }
-.button-text-gone{
+
+.button-text-gone {
     opacity: 0;
 }
 
-.loader-container{
+.loader-container {
     left: 45%;
     position: absolute;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }
 
-.loading-start{
+.loading-start {
     opacity: 1;
 }
-.loading-start-submit{
+
+.loading-start-submit {
     opacity: 1;
     left: 50%;
 }
-.loading-start-submit .loader-circle{
+
+.loading-start-submit .loader-circle {
     stroke: white;
 }
-.email-input {
+
+.hero-section .email-input {
     position: absolute;
     left: 0;
     opacity: 0;
     width: 285px;
+    box-sizing: border-box;
     height: 34px;
     padding: 0 10px;
-    font-size: 16px;
     border: 1px solid white;
     border-radius: 5px;
     background-color: transparent;
@@ -163,500 +161,108 @@
     transition: all 0.3s ease;
 }
 
-.email-input:valid {
+.hero-section .email-input::placeholder {
+    color: rgba(255, 255, 255, 0.785);
+}
+
+.hero-section .email-input:valid {
     border-color: white;
     transition: 0.2s ease-in-out;
 }
 
-.email-input:invalid {
+.hero-section .email-input:invalid {
     border-color: red;
     transition: 0.2s ease-in-out;
 }
 
 /* Styling for the message box */
-.message-box {
-    position: fixed;
+.hero-section .message-box {
+    position: absolute;
     bottom: 10%;
     width: 25%;
-    left: 35%;
-    transform: translateY(20px);
+    left: 50%;
+    transform: translateY(20px) translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 10px;
     transition: all 0.5s ease-in-out;
     border-radius: 5px;
-    font-size: 0.9em;
     visibility: hidden;
     opacity: 0;
     text-align: center;
-    z-index: 9999;
-  }
-  
-  .message-box.show {
+    z-index: 3;
+}
+
+.hero-section .message-box.show {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .message-box.hide {
+    transform: translateY(-30px) translateX(-50%);
+}
+
+.hero-section .message-box.hide {
     visibility: hidden;
     opacity: 0;
-    transform: translateY(0);
-  }
-  
-  /* Optional: Slide down effect */
-  .message-box.show {
-    animation: slideUp 0.5s forwards;
-  }
-  
-  .message-box.hide {
-    animation: slideDown 0.5s forwards;
-  }
-  
-  @keyframes slideUp {
-    from {
-      transform: translateX(-50%) translateY(20px);
-    }
-    to {
-      transform: translateX(-50%) translateY(0);
-    }
-  }
-  
-  @keyframes slideDown {
-    from {
-      transform: translateX(-50%) translateY(0);
-    }
-    to {
-      transform: translateX(-50%) translateY(20px);
-    }
-  }
-  
+    transform: translateY(0) translateX(-50%);
+}
 
-.appointment-container:hover .email-input {
+.hero-section .appointment-container:hover .email-input {
     left: 0px;
-    /* Adjust this value to position the input properly when visible */
     opacity: 1;
-    /* Make the input field visible */
 }
 
-.email-input:focus {
+.hero-section .email-input:focus {
     outline: none;
-    /* Remove the default browser outline */
 }
 
-.appointment-container:hover .book-button {
+.hero-section .appointment-container:hover .book-button {
     transform: translateX(280px);
     background-color: white;
     color: black;
-    /* Move the button to the right when hovered */
 }
-
-
 
 /*  responsiveness */
-
-@media (min-width: 1440px) and (max-width: 2559px) {
-    #home {
-        height: 80vh;
+@media screen and (max-width: 768px) {
+    .hero-section__wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 9rem;
+        gap: 2rem;
+        margin-bottom: 3rem;
     }
 
-    .home-row {
-        gap: 20%;
+    .hero-section__wrapper .content {
+        margin-bottom: 20px;
+        text-align: center;
     }
 
-    @keyframes fly {
-        0% {
-            transform: rotate(0deg);
-            transform: translateX(200px) translateY(300px);
-        }
-
-        100% {
-            transform: translateX(0) translateY(0);
-            transform: rotate(15deg);
-        }
-    }
-
-}
-
-
-/* laptop medium size */
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-    #home {
-        height: 86vh;
-    }
-
-    .home-row {
-        padding: 0 0%;
-        gap: 0;
-        justify-content: space-around;
-    }
-
-    .content h1 {
-        font-size: 1.8em;
-    }
-
-    .content p {
-        font-size: 15px;
-        animation-duration: 5s;
-    }
-
-    @keyframes fly {
-        0% {
-            transform: translateX(40%) translateY(300px) rotate(50deg);
-            transform-origin: top left;
-        }
-
-        100% {
-            transform: translateX(0) translateY(0) rotate(15deg);
-            transform-origin: center;
-        }
-    }
-
-    .plane-image img {
-        width: 235px;
-        height: 235px;
-        animation: fly 4s ease-in-out;
-    }
-}
-
-/* tablet screen */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    #home {
-        height: 86vh;
-    }
-
-    .home-row {
-        padding: 0 0%;
-        gap: 0;
-        justify-content: space-around;
-    }
-
-    .content h1 {
-        font-size: 1.8em;
-    }
-
-    .content p {
-        font-size: 15px;
-        animation-duration: 5s;
-    }
-
-    @keyframes fly {
-        0% {
-            transform: translateX(40%) translateY(300px) rotate(50deg);
-            transform-origin: top left;
-        }
-
-        100% {
-            transform: translateX(0) translateY(0) rotate(15deg);
-            transform-origin: center;
-        }
+    .hero-section .content .main-heading {
+        text-align: center;
     }
 
     .plane-image img {
         width: 200px;
         height: 200px;
-        animation: fly 4s ease-in-out;
-    }
-
-    .email-input {
-        font-size: 12px;
-    }
-
-    .book-button {
-        font-size: 12px;
-    }
-}
-
-
-
-
-/* mobile large screen */
-
-/* Base Styles: Desktop First */
-
-/* Existing desktop styles (you shared) go here */
-
-/* Responsive Styles for Mobile */
-@media (min-width:425px) and (max-width: 767px) {
-    #home {
-        height: 105vh;
-        box-shadow: none;
-    }
-
-    .home-row {
-        flex-direction: column;
-        width: 100%;
-        padding: 80px 0px 40px 0px;
-        gap: 30px;
-    }
-
-    .content {
-        text-align: center;
-        padding: 0 10px;
-    }
-
-    .content h1 {
-        font-size: 1.8em;
-        /* Reduce heading size */
-        margin-bottom: 5px;
-    }
-
-    .content p {
-        font-size: 14px;
-        /* Adjust font size for mobile readability */
-    }
-
-    .plane-image img {
-        width: 180px;
-        height: 180px;
-    }
-
-    @keyframes fly {
-        0% {
-            transform: translateX(40%) translateY(300px) rotate(50deg);
-            transform-origin: top left;
-        }
-
-        100% {
-            transform: translateX(0) translateY(0) rotate(15deg);
-            transform-origin: center;
-        }
     }
 
     .appointment-container {
-        padding-top: 15px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .message-box{
-        font-size: 0.6em;
-    }
-
-    .appointment-container:hover .book-button {
-        transform: translateX(0) translateY(10px);
+        padding-top: 20px;
     }
 
     .book-button {
-        transform: translateY(-20px);
-        width: 60%;
-        padding: 8px 16px;
-        font-size: 14px;
-        /* Adjust button font size */
-    }
-
-    .email-input {
-        left: 0;
-        width: 6%;
-        /* Adjust email input width */
-        padding: 0 8px;
-        opacity: 0;
-        border-radius: 0%;
-        position: relative;
-        font-size: 14px;
-        transition: width 0.5s ease-in-out;
-    }
-
-    .appointment-container:hover .email-input {
-        left: 0;
-        width: 60%;
-        opacity: 1;
-        transition: all 0.2s ease-in-out;
-
-    }
-}
-
-
-/* ---- mobile medium --- */
-
-@media (min-width:375px) and (max-width: 424px) {
-    #home {
-        height: 102vh;
-        box-shadow: none;
-    }
-
-    .home-row {
-        flex-direction: column;
         width: 100%;
-        padding: 80px 0px 40px 0px;
-        gap: 30px;
-    }
-
-    .content {
         text-align: center;
-        padding: 0 10px;
     }
 
-    .content h1 {
-        font-size: 1.8em;
-        /* Reduce heading size */
-        margin-bottom: 5px;
+    .hero-section .appointment-container:hover .book-button {
+        transform: translateY(120%);
     }
 
-    .content p {
-        font-size: 14px;
-        /* Adjust font size for mobile readability */
-    }
-
-    .plane-image img {
-        width: 180px;
-        height: 180px;
-    }
-
-    @keyframes fly {
-        0% {
-            transform: translateX(40%) translateY(300px) rotate(50deg);
-            transform-origin: top left;
-        }
-
-        100% {
-            transform: translateX(0) translateY(0) rotate(15deg);
-            transform-origin: center;
-        }
-    }
-
-    .appointment-container {
-        padding-top: 15px;
+    .hero-section .email-input {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
 
-    .message-box{
-        font-size: 0.6em;
-    }
-
-    .appointment-container:hover .book-button {
-        transform: translateX(0) translateY(10px);
-    }
-
-    .book-button {
-        transform: translateY(-20px);
-        width: 60%;
-        padding: 0 16px;
-        font-size: 14px;
-        /* Adjust button font size */
-    }
-
-    .email-input {
-        left: 0;
-        width: 6%;
-        /* Adjust email input width */
-        padding: 0 8px;
-        opacity: 0;
-        border-radius: 0%;
-        position: relative;
-        font-size: 14px;
-        transition: width 0.5s ease-in-out;
-    }
-
-    .appointment-container:hover .email-input {
-        left: 0;
-        width: 60%;
-        opacity: 1;
-        transition: all 0.2s ease-in-out;
-
-    }
-}
-
-
-
-/* ---- mobile smallest --- */
-
-@media (max-width: 374px) {
-    #home {
-        height: 100vh;
-        box-shadow: none;
-    }
-
-    .home-row {
-        flex-direction: column;
-        width: 100%;
-        padding: 80px 0px 40px 0px;
-        gap: 30px;
-    }
-
-    .content {
-        text-align: center;
-        padding: 0 10px;
-    }
-
-    .content h1 {
-        font-size: 1.5em;
-        /* Reduce heading size */
-        margin-bottom: 5px;
-    }
-
-    .content p {
-        font-size: 14px;
-        /* Adjust font size for mobile readability */
-    }
-
-    .plane-image img {
-        width: 180px;
-        height: 180px;
-    }
-
-    @keyframes fly {
-        0% {
-            transform: translateX(40%) translateY(300px) rotate(50deg);
-            transform-origin: top left;
-        }
-
-        100% {
-            transform: translateX(0) translateY(0) rotate(15deg);
-            transform-origin: center;
-        }
-    }
-
-    .appointment-container {
-        padding-top: 15px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .message-box{
-        font-size: 0.6em;
-    }
-    .appointment-container:hover .book-button {
-        transform: translateX(0) translateY(10px);
-    }
-
-    .book-button {
-        transform: translateY(-20px);
-        width: 60%;
-        padding: 0 16px;
-        font-size: 14px;
-        /* Adjust button font size */
-    }
-
-    .email-input {
-        left: 0;
-        width: 6%;
-        /* Adjust email input width */
-        padding: 0 8px;
-        opacity: 0;
-        border-radius: 0%;
-        position: relative;
-        font-size: 14px;
-        transition: width 0.5s ease-in-out;
-    }
-
-    .appointment-container:hover .email-input {
-        left: 0;
-        width: 60%;
-        opacity: 1;
-        transition: all 0.2s ease-in-out;
-
+    .hero-section .message-box {
+        width: 75%;
     }
 }

@@ -1,75 +1,148 @@
 :root {
-    --page-width: 1800px;
-    --page-width-contact: 1800px;
-    --font-navbrand: "Oooh Baby", cursive;
-    --font-title: "Chela One", system-ui;
-    --font-desc: Verdana, Geneva, Tahoma, sans-serif;
+  --page-width: 1300px;
+  --font-navbrand: "Oooh Baby", cursive;
+
+  --main-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --sub-heading: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
-    margin: 0; 
+  margin: 0;
 }
 
-/* Define the slideUp animation */
-@keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px); /* Starts below the viewport */
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0); /* End at normal position */
-    }
-  }
-  
-  /* Apply the animation */
-  .slideUpAnimation {
-    animation: slideUp 0.5s ease-out forwards; /* 'forwards' ensures the element stays in the final position */
-  }
-  
+.page-width {
+  max-width: var(--page-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
 
+.main-heading {
+  font-family: var(--main-heading);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.large-main-heading {
+  font-weight: 600;
+  font-family: var(--main-heading);
+  font-size: clamp(40px, 7vw, 50px);
+}
+
+.sub-heading {
+  font-family: var(--sub-heading);
+  font-size: 15px;
+}
+
+.border-circle {
+  border-radius: 0 0 25% 25%;
+}
+
+/* -- grids --- */
+
+.grid-3-col__laptop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+
+/* ---- animations ---- */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+}
+
+.slideUpAnimation {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* stagger animation */
+.animate-on-scroll > div {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.animate-on-scroll.visible > div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Intro Loader === */
+.intro-loader {
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.glow-logo {
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(0 0 15px #ffffff);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 5px #ffffff); }
+  100% { filter: drop-shadow(0 0 50px #ffffff); }
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
 
 
 /* ---- rresponsiveness --- */
 
-@media (min-width: 1440px) and (max-width: 2559px) {
-    :root {
-        --page-width: 1224px;
-        --page-width-contact: 1224px;
-    }
+@media screen and (max-width: 1440px) {
+  .page-width {
+    max-width: -webkit-fill-available;
+  }
 }
 
-@media (min-width: 1024px) and (max-width: 1439px) {
-    :root {
-        --page-width: 964px;
-        --page-width-contact: 908px;
-    }
+@media screen and (max-width: 768px) {
+  .page-width {
+    padding: 0 1.5rem;
+  }
+
+  .grid-2-col__tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    :root {
-        --page-width: 708px;
-        --page-width-contact: 667px;
-    }
-}
-
-@media (min-width: 425px) and (max-width: 767px) {
-    :root {
-        --page-width: 365px;
-        --page-width-contact: 365px;
-    }
-}
-
-@media (min-width: 375px) and (max-width: 424px) {
-    :root {
-        --page-width: 315px;
-        --page-width-contact: 300px;
-    }
-}
-
-@media (max-width: 374px) {
-    :root {
-        --page-width: 81%;
-        --page-width-contact: 81%;
-    }
+@media screen and (max-width: 426px) {
+  .grid-1-col__mobile {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
