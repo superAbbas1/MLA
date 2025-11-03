@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/MLA/static/css/main.d2a12548.css",
+    "main.js": "/MLA/static/js/main.dcb8f6c8.js",
+    "static/js/488.958c1d48.chunk.js": "/MLA/static/js/488.958c1d48.chunk.js",
+    "static/media/success.png": "/MLA/static/media/success.7dc874851c030ea58885.png",
+    "static/media/mission.png": "/MLA/static/media/mission.a8c65d09dacd87569052.png",
+    "static/media/australia.jpg": "/MLA/static/media/australia.ccd9fe70c8fd4510ff1b.jpg",
+    "static/media/uk.jpg": "/MLA/static/media/uk.3458fed65e28f921e1d9.jpg",
+    "static/media/canada.jpg": "/MLA/static/media/canada.e4f66446732e4db4b653.jpg",
+    "static/media/bg-image-mobile.png": "/MLA/static/media/bg-image-mobile.315cddd10c0bc933f2a4.png",
+    "static/media/vision.png": "/MLA/static/media/vision.57c97c0f02ca2c0184c1.png",
+    "static/media/promise.png": "/MLA/static/media/promise.dbace5e95e04cc27088b.png",
+    "static/media/consultation.png": "/MLA/static/media/consultation.9e0093a42f1e8ab10b07.png",
+    "static/media/strategy-planning.png": "/MLA/static/media/strategy-planning.f5db0ba0f9398a36003e.png",
+    "static/media/uk-bg.png": "/MLA/static/media/uk-bg.4b99292f148cb1add795.png",
+    "static/media/docss.png": "/MLA/static/media/docss.7bddb7052b48fb917231.png",
+    "static/media/study-abroad.jpg": "/MLA/static/media/study-abroad.376b8a965ddac63bb1f8.jpg",
+    "static/media/plane.png": "/MLA/static/media/plane.a6fdd0c6c4fbb7c2e40f.png",
+    "static/media/Zaid-AboutUs.png": "/MLA/static/media/Zaid-AboutUs.2ec2d39eea07e1e1b7cc.png",
+    "static/media/immigration-consultancy.jpg": "/MLA/static/media/immigration-consultancy.094035587c3054d2e57f.jpg",
+    "static/media/legal-services.jpg": "/MLA/static/media/legal-services.cf1567f01e5103f51ed5.jpg",
+    "static/media/space.jpg": "/MLA/static/media/space.41e5cb3e2207d7777af7.jpg",
+    "static/media/logo-black.png": "/MLA/static/media/logo-black.22397c843a1d0296a25b.png",
+    "static/media/logo-white.png": "/MLA/static/media/logo-white.db1ff23ed880cf328a18.png",
+    "static/media/logo-right-side.png": "/MLA/static/media/logo-right-side.75499e3a47bc08ee2a14.png",
+    "static/media/logo-left-side.png": "/MLA/static/media/logo-left-side.02639e6b18759c792f22.png",
+    "static/media/logo-middle-side.png": "/MLA/static/media/logo-middle-side.719efcc685c36be5661c.png",
+    "index.html": "/MLA/index.html",
+    "main.d2a12548.css.map": "/MLA/static/css/main.d2a12548.css.map",
+    "main.dcb8f6c8.js.map": "/MLA/static/js/main.dcb8f6c8.js.map",
+    "488.958c1d48.chunk.js.map": "/MLA/static/js/488.958c1d48.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2a12548.css",
+    "static/js/main.dcb8f6c8.js"
+  ]
+}
