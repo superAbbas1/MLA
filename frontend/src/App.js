@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './pages/header/Header';
 import Footer from './pages/footer/Footer';
 import Sidebar from './components/Sidebar';
@@ -43,7 +43,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <>
       <Header toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
       <main>
@@ -57,7 +57,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </Router>
+    </>
   );
 }
 
