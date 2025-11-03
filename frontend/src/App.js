@@ -48,7 +48,7 @@ function App() {
       <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
       <main>
         <Routes>
-          <Route path="/MLA" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/immigration" element={<ServicePage {...servicesData.immigration} />} />
           <Route path="/study-abroad" element={<ServicePage {...servicesData.studyAbroad} />} />
           <Route path="/legal-services" element={<ServicePage {...servicesData.legalServices} />} />

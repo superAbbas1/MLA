@@ -5,7 +5,7 @@ import './About.css';
 import OurMission from './ourmission/OurMission';
 import Procedure from './ourprocedure/Procedure';
 import CTA from '../home/CTA/CTA';
-import ceoPic from './images/Zaid-AboutUs.png';
+// import ceoPic from './images/Zaid-AboutUs.png';
 
 import useScrollAnimation from '../../components/useScrollAnimation';
 
