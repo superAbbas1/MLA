@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MLA/static/css/main.d2a12548.css",
-    "main.js": "/MLA/static/js/main.3e405ce1.js",
+    "main.js": "/MLA/static/js/main.e85dca4a.js",
     "static/js/488.958c1d48.chunk.js": "/MLA/static/js/488.958c1d48.chunk.js",
     "static/media/success.png": "/MLA/static/media/success.7dc874851c030ea58885.png",
     "static/media/mission.png": "/MLA/static/media/mission.a8c65d09dacd87569052.png",
@@ -17,7 +17,6 @@
     "static/media/docss.png": "/MLA/static/media/docss.7bddb7052b48fb917231.png",
     "static/media/study-abroad.jpg": "/MLA/static/media/study-abroad.376b8a965ddac63bb1f8.jpg",
     "static/media/plane.png": "/MLA/static/media/plane.a6fdd0c6c4fbb7c2e40f.png",
-    "static/media/Zaid-AboutUs.png": "/MLA/static/media/Zaid-AboutUs.2ec2d39eea07e1e1b7cc.png",
     "static/media/immigration-consultancy.jpg": "/MLA/static/media/immigration-consultancy.094035587c3054d2e57f.jpg",
     "static/media/legal-services.jpg": "/MLA/static/media/legal-services.cf1567f01e5103f51ed5.jpg",
     "static/media/space.jpg": "/MLA/static/media/space.41e5cb3e2207d7777af7.jpg",
@@ -28,11 +27,11 @@
     "static/media/logo-middle-side.png": "/MLA/static/media/logo-middle-side.719efcc685c36be5661c.png",
     "index.html": "/MLA/index.html",
     "main.d2a12548.css.map": "/MLA/static/css/main.d2a12548.css.map",
-    "main.3e405ce1.js.map": "/MLA/static/js/main.3e405ce1.js.map",
+    "main.e85dca4a.js.map": "/MLA/static/js/main.e85dca4a.js.map",
     "488.958c1d48.chunk.js.map": "/MLA/static/js/488.958c1d48.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d2a12548.css",
-    "static/js/main.3e405ce1.js"
+    "static/js/main.e85dca4a.js"
   ]
 }
